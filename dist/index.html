@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" integrity="sha384-lZfu7Y8CcI+H6IMs+Kkvm6WLOsCCvsxjCC9C8YQ+UMeR8DYbzWUNjCqXxfrb+3R" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>Frontend Mentor | Age calculator app</title>
+    <style>
+        .image-container {
+            overflow: hidden;
+            border-radius: 50px; 
+            /* margin-right: 10px;  */
+            height: 80vh;
+            margin-top: 40px;
+            transition: all .5s ease-in-out;
+        }
+
+        .image-container:hover {
+            transform: scale(1.1); 
+        }
+
+        .image-container.expanded {
+            width: 600px;
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out, border-radius 0.5s ease-in-out; 
+          }
+
+        .image-container img {
+            width: 100px;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .image-container.expanded img {
+            width: 100%;
+        }
+
+        .image-text {
+            display: none;
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 40%;
+        }
+
+        .image-container.expanded .image-text {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-300 h-screen relative flex items-center justify-center">
+    <div class="flex gap-6">
+        <div class="image-container " onclick="toggleImage(this)">
+            <img src="./images/Image1.avif" alt="Image 1" class="object-cover cursor-pointer">
+            <div class="image-text text-blue-50 text-2xl">Explore The World</div>
+        </div>
+
+        <div class="image-container " onclick="toggleImage(this)">
+            <img src="./images/Image2.avif" alt="Image 2" class="object-cover cursor-pointer">
+            <div class="image-text text-blue-50 text-2xl">Wild Forest</div>
+          </div>
+
+        <div class="image-container " onclick="toggleImage(this)">
+            <img src="./images/Image3.avif" alt="Image 3" class="object-cover cursor-pointer">
+            <div class="image-text text-blue-50 text-2xl">Sunny Beach</div>
+          </div>
+
+        <div class="image-container " onclick="toggleImage(this)">
+            <img src="./images/Image4.avif" alt="Image 4" class="object-cover cursor-pointer">
+            <div class="image-text text-blue-50 text-2xl">City on Winter</div>
+          </div>
+
+        <div class="image-container " onclick="toggleImage(this)">
+            <img src="./images/Image5.avif" alt="Image 5" class="object-cover cursor-pointer">
+          </div>
+    </div>
+    <script>
+        function toggleImage(element) {
+            const allImages = document.querySelectorAll('.image-container');
+            
+            allImages.forEach(image => {
+                if (image !== element && image.classList.contains('expanded')) {
+                    image.classList.remove('expanded');
+                }
+            });
+            element.classList.toggle('expanded');
+        }
+   </script>
+</body>
+</html>
